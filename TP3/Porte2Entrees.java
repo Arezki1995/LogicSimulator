@@ -18,9 +18,9 @@ public abstract class Porte2Entrees extends Porte
 	public String description(){
 		if(in1!=null){
 			if(in2!=null){
-				return this.getId() + "in1: "+in1.getId() + "   in2: "+in2.getId();
+				return this.getId() + " in1: "+in1.getId() + "   in2: "+in2.getId();
 			}else{
-				return this.getId() + "in1: "+in1.getId() + "   in2: non connecte";
+				return this.getId() + " in1: "+in1.getId() + "   in2: non connecte";
 			}
 			 
 		}else{

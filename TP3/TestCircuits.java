@@ -39,7 +39,10 @@ public class TestCircuits
 		//Connexions
 		
 			//Or
-			((Or)composants[3]).setIn1(composants[0]);
+				//test de la sonde sur OR in1
+				((Or) composants[3]).setIn1(new LazySonde(composants[3],"in1"));
+			//((Or)composants[3]).setIn1(composants[0]);
+			
 			((Or)composants[3]).setIn2(composants[1]);
 		
 			//NOT
@@ -47,7 +50,7 @@ public class TestCircuits
 		
 			//AND
 			((And)composants[5]).setIn1(composants[3]);
-			//((And)composants[5]).setIn2(composants[4]);
+			((And)composants[5]).setIn2(composants[4]);
 		
 			//Vanne
 			((Vanne)composants[6]).setIn(composants[5]);
@@ -70,9 +73,8 @@ public class TestCircuits
 		*/
 
 		traceEtats(composants);
-	
-	
-
+		
+		
 				
 
 		

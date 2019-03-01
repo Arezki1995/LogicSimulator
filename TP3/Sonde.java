@@ -1,26 +1,31 @@
 import java.util.Scanner;
 
-public class Sonde extends{
+public class Sonde extends Composant{
 
 
     protected Composant composant;
     protected String entree; 
 
-    public Sonde (Composant pComposant, String entree){
+    public Sonde (Composant pComposant, String pEntree){
+	composant = pComposant;
+	entree	= pEntree;
 
     }
 
-    public getEtat(){
+    public boolean getEtat(){
 
         Scanner keyboard = new Scanner(System.in);
-        String state;
-        do{
-            System.out.println(entree + " de " + composant+ ", true or false?" );
-            String state = keyboard.nextString();
-            if(state=="true" || state =="false"){
-                System.out.println("Je force: "+ state);
-            }
-        }while(state!="true" || state !="false");
+        boolean state;
+     	System.out.println(entree + " de " + composant+ ", true or false?" );
+     	
+     	
+    	state = keyboard.nextBoolean();
+    	
+    	return state;
     }
-
+    
+    
+    public String description(){
+    	return this.getId()+ " connectée à l'entrée " + entree + " du composant " + composant; 
+    }
 }
