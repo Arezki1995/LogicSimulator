@@ -25,13 +25,8 @@ public abstract class Composant implements Comparable<Composant>{
 			
 	}
 	
-	public boolean compareTo(Composant comp){
-		if( this.getId() > comp.getId()){
-			return true;
-		
-		}else{
-			return false;
-		}
+	public int compareTo(Composant comp){
+		return this.getId().compareTo(comp.getId());
 	}
 	
 }

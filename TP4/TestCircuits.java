@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TestCircuits 
@@ -21,10 +23,27 @@ public class TestCircuits
 
 	}
 
+	static void test(Circuit circ){
+		//test Nomenclature
+		for (String  s: circ.nomenclature()) {
+			System.out.println(s);
+		}
+
+		//test Description
+		for (Interrupteur  sw: circ.getIns()) {
+			System.out.println(sw.description());
+		}
+
+		for (Vanne v: circ.getOuts()) {
+			System.out.println(v.description());
+		}
+		circ.traceEtats();
+	}
 
 
 	public static void main(String[] args) {
 		//Construction
+		
 		Composant[] composants = new Composant[7];
 		
 		composants[0]= new Interrupteur();  //i 1
@@ -40,8 +59,8 @@ public class TestCircuits
 		
 			//Or
 				//test de la sonde sur OR in1
-				((Or) composants[3]).setIn1(new LazySonde(composants[3],"in1"));
-			//((Or)composants[3]).setIn1(composants[0]);
+				//((Or) composants[3]).setIn1(new LazySonde(composants[3],"in1"));
+			((Or)composants[3]).setIn1(composants[0]);
 			
 			((Or)composants[3]).setIn2(composants[1]);
 		
@@ -54,13 +73,13 @@ public class TestCircuits
 		
 			//Vanne
 			((Vanne)composants[6]).setIn(composants[5]);
-		
-		/*
-			for(int i=0; i< composants.length; i++){
-				System.out.println(composants[i].description());
-			}
-		*/
-		
+
+			System.out.println("CIRCUIT!");
+			
+			Circuit ckt= new Circuit("Amplifier",composants );
+			test(ckt);
+
+			
 		
 		
 		//Affichage
@@ -72,10 +91,11 @@ public class TestCircuits
 		}
 		*/
 
-		traceEtats(composants);
+		//traceEtats(composants);
 		
 		
-				
+	
+			
 
 		
 		System.out.println("Au revoir!");
